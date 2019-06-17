@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
-import {Text} from 'react-native';
+import React from 'react';
+import { Text } from 'react-native';
 import { Query, ApolloConsumer, Mutation } from 'react-apollo';
+import { clearSession, saveToken } from '../util/session';
 import Layout from '../components/layout';
 import LoginForm from '../components/profile/login-form';
+import LoggedIn from '../components/profile/logged-in';
 import { IS_LOGGED_IN } from '../queries/isLoggedIn';
 import { LOGIN_USER } from '../queries/login';
+import { ME } from '../queries/me';
 
 const Profile = () => (
     <Query query={IS_LOGGED_IN}>
@@ -15,20 +18,24 @@ const Profile = () => (
                         {client => (
                             <Mutation 
                                 mutation={LOGIN_USER}
-                                onCompleted={({ login }) => {
-                                    client.writeData({ data: { isLoggedIn: true, token: login }});
-                                }}
-                                >
-                                {(login, { loading, error }) => {
+                                onCompleted={async ({ login }) => {
+                                    await saveToken(login);
+                                    client.writeData({ data: { isLoggedIn: true }});
+                                }}>
+                                {(login, { error }) => {
                                     return (
                                         <Layout>
-                                            <Text style={{
-                                                backgroundColor: 'red',
-                                                color: 'white',
-                                                width: '80%'
-                                            }}>
-                                                {error ? `Failed to log in. Error was ${error.message}` : ''}
-                                            </Text>
+                                            {error && (
+                                                <Text style={{
+                                                    backgroundColor: 'red',
+                                                    color: 'white',
+                                                    width: '80%',
+                                                    padding: 8
+                                                }}>
+                                                    {`Failed to log in. Error was: ${error.message}`}
+                                                </Text>
+                                            )}
+                                            
                                             <LoginForm login={login} />
                                         </Layout>
                                     );
@@ -38,7 +45,23 @@ const Profile = () => (
                     </ApolloConsumer>
                 );
             } else {
-                return <Layout><Text>Hi! This is the profile view. The user is LOGGED IN.</Text></Layout>
+                return (
+                    <Query query={ME} fetchPolicy="network-only">
+                        {({ data, client }) => {
+                            return (
+                                <Layout>
+                                    <LoggedIn 
+                                        user={data.me}
+                                        logout={async () => {
+                                            await clearSession();
+                                            client.writeData({ data: { isLoggedIn: false }})
+                                        }} 
+                                    />
+                                </Layout>
+                            );
+                        }}
+                    </Query>
+                );
             }
         }}
     </Query>

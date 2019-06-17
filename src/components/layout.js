@@ -7,11 +7,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#f3eff5',
       alignItems: 'center',    // Horizontal alignment
       justifyContent: 'center' // Vertical alignment
-  },
-  errors: {
-    backgroundColor: 'red',
-    color: 'white',
-    width: '80%'
   }
 });
 

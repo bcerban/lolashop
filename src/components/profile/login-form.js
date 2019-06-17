@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import StyledButton from '../styled-button';
-// import loginBackground from '../assets/images/login.png';
-// import { colors, unit } from '../styles';
-import { TextInput } from 'react-native';
+import { Container, Heading, StyledButton, StyledForm } from '../generic';
 
 const unit = 8;
 const colors = {
@@ -19,11 +16,7 @@ const colors = {
 export default class LoginForm extends Component {
   state = { email: '' };
 
-  onChangeText = text => {
-    this.setState({ email: text.toLowerCase() });
-  };
-
-  onSubmit = event => {
+  onSubmit = () => {
     if (!this.state.email || this.state.email == '') {
       alert(`Email cannot be empty!`);
     } else {
@@ -42,7 +35,6 @@ export default class LoginForm extends Component {
                   keyboardType="email-address"
                   onChangeText={(text) => {
                     this.setState({ email: text.toLowerCase() });
-                    value = text.toLowerCase();
                   }}
               />
               <StyledButton 
@@ -57,36 +49,10 @@ export default class LoginForm extends Component {
   }
 }
 
-const Container = styled.View`
-  align-items: center;
-  width: 80%;
-  background-color: white;
-  border: 1px solid ${colors.grey};
-`;
-
-const Heading = styled.Text`
-  margin: ${unit * 6}px 0 ${unit * 2}px;
-  padding: ${unit * 2}px;
-  color: #1e152a;
-  font-size: ${unit * 2}px;
-  font-weight: bold;
-`;
-
-const StyledForm = styled.View`
-  width: 100%;
-  max-width: 406;
-  padding: ${unit * 3.5}px;
-  background-color: white;
-`;
-
 const StyledInput = styled.TextInput`
   width: 100%;
   margin-bottom: ${unit * 2}px;
   padding: ${unit * 1.25}px ${unit * 2.5}px;
   border: 1px solid ${colors.grey};
   font-size: 16;
-  text-transform: lowercase;
-  /* :focus {
-      border-color: ${colors.primary};
-  } */
 `;

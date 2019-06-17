@@ -1,11 +1,17 @@
 import gql from 'graphql-tag';
 
-export const typeDefs = gql`
+const typeDefs = gql`
   extend type Query {
-    isLoggedIn: Boolean!
+    isLoggedIn: Boolean! @client
+  }
+
+  extend type User {
+    avatarUrl: String! @client
   }
 
   extend type Product {
     mainImage: String
   }
 `;
+
+export default typeDefs;
