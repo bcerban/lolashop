@@ -8,6 +8,7 @@ const StyledForm = styled.View`
   max-width: 406;
   padding: ${unit * 3.5}px;
   background-color: white;
+  align-items: center;
 `;
 
 export default StyledForm;

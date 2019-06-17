@@ -5,7 +5,7 @@ export const ME = gql`
     me {
       id
       email
-      # avatarUrl @client
+      avatarUrl @client
     }
   }
 `;

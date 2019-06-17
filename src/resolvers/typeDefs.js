@@ -2,11 +2,11 @@ import gql from 'graphql-tag';
 
 const typeDefs = gql`
   extend type Query {
-    isLoggedIn: Boolean! @client
+    isLoggedIn: Boolean! 
   }
 
   extend type User {
-    avatarUrl: String! @client
+    avatarUrl: String!
   }
 
   extend type Product {
