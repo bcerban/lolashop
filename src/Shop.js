@@ -1,5 +1,5 @@
 import React from 'react';
-import { getToken, sessionStarted } from './util/session';
+import { getToken } from './util/session';
 import MainNavigation from './components/navigator';
 import resolvers from './resolvers/resolvers';
 import typeDefs from './resolvers/typeDefs';
@@ -8,8 +8,14 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const cache = new InMemoryCache();
-cache.writeData({ data: { isLoggedIn: false }});
+const getCache = () => {
+  const cache = new InMemoryCache();
+  getToken().then(token => {  
+    cache.writeData({ data: { isLoggedIn: !!token }});
+  });
+
+  return cache;
+}
 
 const customFetch = async (uri, options) => {
   const token = await getToken();
@@ -18,7 +24,7 @@ const customFetch = async (uri, options) => {
 };
 
 const client = new ApolloClient({
-  cache: cache,
+  cache: getCache(),
   link: new HttpLink({
     uri: 'http://localhost:4000/',
     fetch: customFetch
