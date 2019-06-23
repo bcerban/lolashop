@@ -22,20 +22,37 @@ const ItemDescription = styled.Text`
     color: #1e152a;
 `;
 
+const height = 40;
+const unit = 8;
+
+const ButtonContainer = styled.TouchableOpacity`
+  display: flex;
+  height: ${height};
+  min-width: 150;
+  margin: 20px;
+  padding: 0 ${unit * 4}px;
+  border-radius: ${height / 2};
+  background-color: ${props => props.backgroundColor};
+`;
+
+const ButtonText = styled.Text`
+  line-height: ${height}px;
+  font-size: 16;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: ${props => props.color};
+`;
+
 const LocationItem = (props) => (
     <ItemContainer>
         <View style={{ flexDirection: 'row', flex: 1 }}>
             <ItemTitle>{props.location.name}</ItemTitle>
         </View>
-        
         <ItemDescription>{props.location.street} | {props.location.city} | {props.location.country}</ItemDescription>
-        {/* <RemoveItemButton 
-            title="Quitar" 
-            color="white"
-            backgroundColor="#1e152a"
-            productId={props.product.id}
-            remove={props.remove}
-        /> */}
+        <ButtonContainer onPress={props.onPress} backgroundColor="#1e152a">
+            <ButtonText color="white">Ver en mapa</ButtonText>
+        </ButtonContainer>
     </ItemContainer>
 );
 

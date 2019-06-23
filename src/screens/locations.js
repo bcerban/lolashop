@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import { LocationItem } from '../components/locations';
 import { GET_LOCATIONS } from '../queries/locations';
 import getDistance from 'geolib/es/getDistance';
+import openMap from 'react-native-open-maps';
 
 const LOCATIONS_TITLE = 'Sucursales';
 
@@ -38,6 +39,15 @@ export default class Locations extends Component {
         return locationsWithDistance;
     }
 
+    viewInMap = (location) => {
+        const loc = { latitude: location.latitude, longitude: location.longitude };
+        console.log(loc);
+        openMap({ 
+            latitude: Number(location.latitude), 
+            longitude: Number(location.longitude) 
+        });
+    }
+
     render() {
         return <Query query={GET_LOCATIONS}>
             {({ data, loading, error }) => {
@@ -56,7 +66,7 @@ export default class Locations extends Component {
                                     data={locations}
                                     keyExtractor={item => item.id}
                                     showsVerticalScrollIndicator={false}
-                                    renderItem={({ item }) => <LocationItem location={item} />}
+                                    renderItem={({ item }) => <LocationItem location={item} onPress={() => this.viewInMap(item)} />}
                                 />
                             </View>
                         </Layout>
