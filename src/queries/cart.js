@@ -6,7 +6,6 @@ export const MY_CART = gql`
       id
       cart {
         id
-        sku
         name
         description
         price

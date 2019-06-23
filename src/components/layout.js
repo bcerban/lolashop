@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 const Layout = ({ title, children }) => {
   return (
     <View style={styles.layout}>
-      <TopBar title={title} />
+      {title ? <TopBar title={title} /> : null}
       <View style={styles.container}>{children}</View>
     </View>
   );
