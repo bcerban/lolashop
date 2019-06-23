@@ -1,16 +1,20 @@
 import React from 'react';
 // import {StyleSheet, View} from 'react-native';
-import {createBottomTabNavigator, createAppContainer} from 'react-navigation';
-import Cart from '../screens/cart';
-import Favorites from '../screens/favorites';
-import Locations from '../screens/locations';
-import Profile from '../screens/profile';
-import Search from '../screens/search';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
+import { Cart, Category, Favorites, Locations, Product, Profile, Search } from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const CatalogNavigator = createStackNavigator({
+    Search: Search,
+    Category: Category,
+    Product: Product
+}, {
+    // headerMode: 'none'
+});
 
 const BottomNavigator = createBottomTabNavigator({
     Search: { 
-        screen: Search,
+        screen: CatalogNavigator,
         navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-search' color={tintColor} size={35} />
         }) 
