@@ -40,8 +40,6 @@ export default class Locations extends Component {
     }
 
     viewInMap = (location) => {
-        const loc = { latitude: location.latitude, longitude: location.longitude };
-        console.log(loc);
         openMap({ 
             latitude: Number(location.latitude), 
             longitude: Number(location.longitude) 
