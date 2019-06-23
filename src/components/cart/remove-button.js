@@ -8,7 +8,7 @@ const ButtonContainer = styled.TouchableOpacity`
   display: flex;
   height: ${height};
   min-width: 150;
-  margin: 0 auto;
+  margin: 20px;
   padding: 0 ${unit * 4}px;
   border-radius: ${height / 2};
   background-color: ${props => props.backgroundColor};
@@ -23,10 +23,10 @@ const ButtonText = styled.Text`
   color: ${props => props.color};
 `;
 
-const StyledButton = (props) => (
-  <ButtonContainer onPress={props.onPress} backgroundColor={props.backgroundColor} >
-    <ButtonText color={props.color}>{props.title}</ButtonText>
+const RemoveItemButton = (props) => (
+  <ButtonContainer onPress={props.remove} backgroundColor={props.backgroundColor}>
+      <ButtonText color={props.color}>{props.title}</ButtonText>
   </ButtonContainer>
 );
 
-export default StyledButton;
+export default RemoveItemButton;

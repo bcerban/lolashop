@@ -9,6 +9,8 @@ import { IS_LOGGED_IN } from '../queries/isLoggedIn';
 import { LOGIN_USER } from '../queries/login';
 import { ME } from '../queries/me';
 
+const PROFILE_TITLE = 'Mi perfil';
+
 const Profile = () => (
     <Query query={IS_LOGGED_IN}>
         {({ data }) => {
@@ -24,7 +26,7 @@ const Profile = () => (
                                 }}>
                                 {(login, { error }) => {
                                     return (
-                                        <Layout>
+                                        <Layout title={PROFILE_TITLE}>
                                             {error && (
                                                 <Text style={{
                                                     backgroundColor: 'red',
@@ -49,7 +51,7 @@ const Profile = () => (
                     <Query query={ME} fetchPolicy="network-only">
                         {({ data, client }) => {
                             return (
-                                <Layout>
+                                <Layout title={PROFILE_TITLE}>
                                     <LoggedIn 
                                         user={data.me}
                                         logout={async () => {
