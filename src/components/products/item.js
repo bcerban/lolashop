@@ -1,58 +1,28 @@
 import React from 'react';
-import { View } from 'react-native';
-import styled from 'styled-components';
+import { Text } from 'react-native';
+import { Card, Title, withTheme } from 'react-native-paper';
+import { TouchableItem } from '../../containers';
 
-const ItemContainer = styled.TouchableOpacity`
-    background-color: white;
-    border: 1px solid #d8d9e0;
-    margin: 10px 0px;
-`;
+const ProductItem = (props) => {
+    const { colors } = props.theme;
 
-const ItemImage = styled.Image`
-    width: 100%; 
-    height: 275px;
-`;
+    return (
+        <TouchableItem 
+            onPress={props.onPress} 
+            backgroundColor={colors.surface}
+            borderColor={colors.background}
+        >
+            <Card theme={props.theme}>
+                <Card.Cover source={props.product.mainImage 
+                    ? { uri: props.product.mainImage } 
+                    : require('../../assets/default.png')} />
 
-const ItemTitle = styled.Text`
-    flex: 1;
-    margin: 10px 16px;
-    color: #1e152a;
-    font-size: 24px;
-    font-weight: bold;
-`;
-
-const ItemPrice = styled.Text`
-    margin: 10px;
-    color: #1e152a;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-`;
-
-const ItemDescription = styled.Text`
-    width: 90%;
-    margin: 10px 5% 20px;
-    color: #1e152a;
-`;
-
-const ProductItem = (props) => (
-    <ItemContainer onPress={props.onPress}>
-        <View style={{ flex: 1, borderBottomWidth: 1, borderColor: '#d8d9e0', borderStyle: 'solid' }}>
-            <ItemImage source={props.product.mainImage 
-                ? { uri: props.product.mainImage } 
-                : require('../../assets/default.png')} />
-        </View>
-        
-        <View style={{ 
-            flexDirection: 'row', 
-            flex: 1, 
-        }}>
-            <ItemTitle>{props.product.name}</ItemTitle>
-            <ItemPrice>${props.product.price}</ItemPrice>
-        </View>
-        
-        {/* <ItemDescription>{props.product.description}</ItemDescription> */}
-    </ItemContainer>
-);
-
-export default ProductItem;
+                <Card.Content style={{ alignItems: 'center' }}>
+                    <Title style={{ color: colors.accent }}>{props.product.name}</Title>
+                    <Title>${props.product.price}</Title>
+                </Card.Content>
+            </Card>
+        </TouchableItem>
+    );
+}
+export default withTheme(ProductItem);

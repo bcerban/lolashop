@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, FlatList, ActivityIndicator, Alert } from 'react-native';
 import { Query } from 'react-apollo';
-import Layout from '../components/layout';
+import { Layout } from '../containers';
 import ProductItem from '../components/products/item';
 import { GET_CATEGORY_PRODUCTS } from '../queries/categories';
 
@@ -35,7 +35,6 @@ export default class Category extends Component {
                 variables={{ id: this.state.id }}
                 fetchPolicy="network-only"
                 onCompleted={(data) => {
-                    console.log(data);
                     this.setState({ 
                         hasMore: data.categoryProducts.hasMore, 
                         cursor: data.categoryProducts.cursor, 
@@ -44,7 +43,7 @@ export default class Category extends Component {
                 }}
             >
                 {({ loading, error }) => {
-                    if (loading) return <ActivityIndicator animating={loading} />;
+                    if (loading) return <Layout><ActivityIndicator animating={loading} /></Layout>;
                     if (error) return emptyList;
                     if (this.state.products.length == 0) return emptyList;
 

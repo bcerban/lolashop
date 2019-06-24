@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Text } from 'react-native';
-import Layout from '../components/layout';
+import { Layout } from '../containers';
 
 export default class Product extends Component {
     constructor(props) {

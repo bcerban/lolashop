@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, Alert, ActivityIndicator, FlatList } from 'react-native';
 import { Query } from 'react-apollo';
-import Layout from '../components/layout';
+import { Layout } from '../containers';
 import { LocationItem } from '../components/locations';
 import { GET_LOCATIONS } from '../queries/locations';
 import getDistance from 'geolib/es/getDistance';
