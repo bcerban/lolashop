@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withTheme } from 'react-native-paper';
 
 const TopBarContainer = styled.View`
     margin: 0px;
     height: 100px;
     width: 100%;
-    background-color: white;
+    background-color: ${props => props.backgroundColor};
     justify-content: flex-end;
 `;
 
@@ -15,13 +16,17 @@ const TopBarText = styled.Text`
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  color: #1e152a;
+  color: ${props => props.color};
 `;
 
-const TopBar = (props) => (
-    <TopBarContainer>
-        <TopBarText>{props.title}</TopBarText>
-    </TopBarContainer>
-);
+const TopBar = (props) => {
+    const { colors } = props.theme;
 
-export default TopBar;
+    return (
+        <TopBarContainer backgroundColor={colors.surface}>
+            <TopBarText color={colors.primary}>{props.title}</TopBarText>
+        </TopBarContainer>
+    );
+}
+
+export default withTheme(TopBar);

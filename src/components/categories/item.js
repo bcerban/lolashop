@@ -1,42 +1,26 @@
 import React from 'react';
-import { View, Alert } from 'react-native';
-import styled from 'styled-components';
+import { Card, Title, withTheme } from 'react-native-paper';
+import { TouchableItem } from '../../containers';
 
-const ItemContainer = styled.TouchableOpacity`
-    background-color: white;
-    border: 1px solid #d8d9e0;
-    margin: 10px 0px;
-`;
+const CategoryItem = (props) => {
+    const { colors } = props.theme;
 
-const ItemImage = styled.Image`
-    width: 100%; 
-    height: 275px;
-`;
+    return (
+        <TouchableItem 
+            onPress={props.onPress} 
+            backgroundColor={colors.surface}
+            borderColor={colors.background}
+        >
+            <Card theme={props.theme}>
+                <Card.Content style={{ alignItems: 'center' }}>
+                    <Title>{props.category.name}</Title>
+                </Card.Content>
+                <Card.Cover source={props.category.imageUrl
+                    ? { uri: props.category.imageUrl } 
+                    : require('../../assets/default.png')} />
+            </Card>
+        </TouchableItem>
+    );
+}
 
-const ItemTitle = styled.Text`
-    flex: 1;
-    margin: 10px 16px;
-    color: #1e152a;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-`;
-
-const CategoryItem = (props) => (
-    <ItemContainer onPress={props.onPress}>
-        <View style={{ flex: 1, borderBottomWidth: 1, borderColor: '#d8d9e0', borderStyle: 'solid' }}>
-            <ItemImage source={props.category.imageUrl
-                ? { uri: props.category.imageUrl } 
-                : require('../../assets/default.png')} />
-        </View>
-        
-        <View style={{ 
-            flexDirection: 'row', 
-            flex: 1, 
-        }}>
-            <ItemTitle>{props.category.name}</ItemTitle>
-        </View>
-    </ItemContainer>
-);
-
-export default CategoryItem;
+export default withTheme(CategoryItem);

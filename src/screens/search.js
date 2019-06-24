@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Text } from 'react-native';
-import Layout from '../components/layout';
-import { CategoryList } from '../containers';
+import { CategoryList, Layout } from '../containers';
 
 export default class Search extends Component {
     constructor(props) {

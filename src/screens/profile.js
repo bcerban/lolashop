@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { Query, ApolloConsumer, Mutation } from 'react-apollo';
 import { clearSession, saveToken } from '../util/session';
-import Layout from '../components/layout';
+import { Layout } from '../containers';
 import LoginForm from '../components/profile/login-form';
 import LoggedIn from '../components/profile/logged-in';
 import { IS_LOGGED_IN } from '../queries/isLoggedIn';
