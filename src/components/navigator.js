@@ -9,8 +9,12 @@ const CatalogNavigator = createStackNavigator({
     Category: Category,
     Product: Product
 }, {
-    // headerMode: 'none'
 });
+
+const CartNavigator = createStackNavigator({
+    Cart: Cart,
+    Product: Product
+}, {});
 
 const BottomNavigator = createBottomTabNavigator({
     Search: { 
@@ -25,14 +29,14 @@ const BottomNavigator = createBottomTabNavigator({
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-pin' color={tintColor} size={35} />
         }) 
     },
-    Favorites: { 
-        screen: Favorites,
-        navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-heart' color={tintColor} size={35} />
-        }) 
-    },
+    // Favorites: { 
+    //     screen: Favorites,
+    //     navigationOptions: () => ({
+    //         tabBarIcon: ({ tintColor }) => <Ionicons name='ios-heart' color={tintColor} size={35} />
+    //     }) 
+    // },
     Cart: { 
-        screen: Cart,
+        screen: CartNavigator,
         navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-cart' color={tintColor} size={35} />
         }) 

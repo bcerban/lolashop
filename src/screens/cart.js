@@ -6,12 +6,12 @@ import { CartList, Layout } from '../containers';
 
 const CART_TITLE = 'Mi carrito';
 
-const Cart = () => (
+const Cart = (props) => (
     <Query query={IS_LOGGED_IN}>
         {({ data }) => {
             if (!data || !data.isLoggedIn) {
                 return (
-                    <Layout title={CART_TITLE}>
+                    <Layout>
                         <Text style={{
                             alignItems: 'center',
                             textAlign: 'center',
@@ -20,7 +20,7 @@ const Cart = () => (
                     </Layout>
                 );
             } else {
-                return <Layout title={CART_TITLE}><CartList /></Layout>
+                return <Layout><CartList navigation={props.navigation} /></Layout>
             }
         }}
     </Query>
