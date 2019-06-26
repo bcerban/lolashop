@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import { Text, View, Dimensions, StyleSheet, Platform, Alert } from 'react-native';
+import { View, ScrollView, Dimensions, StyleSheet, Platform, Alert } from 'react-native';
 import { withTheme, Title, Paragraph, Button } from 'react-native-paper';
 import { Layout } from '../containers';
 import Carousel, { Pagination, ParallaxImage } from 'react-native-snap-carousel';
 
-const { width: screenWidth } = Dimensions.get('window');
-const padding = 15;
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 class Product extends Component {
     constructor(props) {
@@ -19,7 +18,7 @@ class Product extends Component {
     }
 
     renderImage = ({ item, index }, parallaxProps) => (
-        <View style={{ width: screenWidth, height: screenWidth }}>
+        <View style={{ width: screenWidth, height: screenHeight / 2 }}>
             <ParallaxImage
                 source={{ uri: item.uri }}
                 dimensions={{ width: screenWidth, height: screenWidth }}
@@ -48,14 +47,14 @@ class Product extends Component {
         return (
             <Layout justifyContent='flex-start' scrollable={true}>
                 <View style={{ 
-                    height: screenWidth, 
+                    height: screenHeight / 2, 
                     border: `1px solid ${this.props.theme.colors.background}`,
                     backgroundColor: 'transparent' 
                 }}>
                     <Carousel
                         ref={c => this.carousel = c}
                         sliderWidth={screenWidth}
-                        sliderHeight={screenWidth}
+                        sliderHeight={screenHeight / 2}
                         itemWidth={screenWidth}
                         data={images}
                         renderItem={this.renderImage}
@@ -63,6 +62,15 @@ class Product extends Component {
                         hasParallaxImages={true}
                         loop={true}
                     />
+                    <Title style={{ 
+                        textAlign: 'center',
+                        color: this.props.theme.colors.primary,
+                        backgroundColor: 'white',
+                        padding: 10,
+                        fontWeight: 'bold'
+                    }}>
+                        {this.state.name}
+                    </Title>
                     {/* <Pagination
                         dotsLength={images.length}
                         activeDotIndex={this.state.activeDotIndex}
@@ -77,22 +85,18 @@ class Product extends Component {
                 </View>
             
                 <View style={{ width: screenWidth }}>
-                    <Title style={{ 
-                        textAlign: 'center',
-                        color: this.props.theme.colors.primary,
-                        backgroundColor: 'white',
-                        padding: 10,
-                        fontWeight: 'bold'
-                    }}>
-                        {this.state.name}
-                    </Title>
-                    <Paragraph style={{ padding: 10 }}>{this.state.description}</Paragraph>
-                    <Paragraph style={{ padding: 10, fontWeight: 'bold' }}>Dimensiones: {this.state.dimensions}</Paragraph>
+                    <ScrollView style={{ height: screenHeight / 5 }}>
+                        <Paragraph style={{ padding: 10 }}>{this.state.description}</Paragraph>
+                        <Paragraph style={{ padding: 10, fontWeight: 'bold' }}>
+                            Dimensiones: {this.state.dimensions}
+                        </Paragraph>
+                    </ScrollView>
+                    
                     <Button 
                         icon="shopping-cart" 
                         mode="contained" 
                         onPress={() => Alert.alert('', 'Agregaste un producto a tu carrito!')}
-                        style={{ width: '80%', marginLeft: '10%' }}
+                        style={{ width: '80%', marginLeft: '10%', marginTop: 20 }}
                     >
                         Agregar al carrito
                     </Button>

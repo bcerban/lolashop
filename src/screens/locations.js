@@ -57,17 +57,15 @@ export default class Locations extends Component {
 
                 const locations = this.sortLocations(data.locations);
                 return (
-                    <Layout title={LOCATIONS_TITLE}>
-                        <Layout>
-                            <View style={{ width: '95%' }}>
-                                <FlatList
-                                    data={locations}
-                                    keyExtractor={item => item.id}
-                                    showsVerticalScrollIndicator={false}
-                                    renderItem={({ item }) => <LocationItem location={item} onPress={() => this.viewInMap(item)} />}
-                                />
-                            </View>
-                        </Layout>
+                    <Layout title={LOCATIONS_TITLE} justifyContent='flex-start'>
+                        <View style={{ width: '95%' }}>
+                            <FlatList
+                                data={locations}
+                                keyExtractor={item => item.id}
+                                showsVerticalScrollIndicator={false}
+                                renderItem={({ item }) => <LocationItem location={item} onPress={() => this.viewInMap(item)} />}
+                            />
+                        </View>
                     </Layout>
                 );
             }}
