@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from "react-native";
+import { View, ScrollView } from "react-native";
 import { TopBar } from '../components/generic';
 import { withTheme } from 'react-native-paper';
 
@@ -10,10 +10,27 @@ const Layout = (props) => {
     <View style={{ flex: 1, width: '100%', backgroundColor: colors.background, alignItems: 'center' }}>
       {props.title ? <TopBar title={props.title} /> : null}
       
-      <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
-        {props.children}
-      </View>
-
+      {props.scrollable ? (
+        <ScrollView 
+          showsVerticalScrollIndicator={false}
+          style={{ flex: 1, width: '100%' }}
+          contentContainerStyle={{ 
+            alignItems: 'center', 
+            justifyContent: props.justifyContent ? props.justifyContent : 'center' 
+          }}
+        >
+          {props.children}
+        </ScrollView>
+      ) : (
+        <View style={{ 
+          flex: 1, 
+          width: '100%', 
+          alignItems: 'center', 
+          justifyContent: props.justifyContent ? props.justifyContent : 'center' 
+        }}>
+          {props.children}
+        </View>
+      )}
     </View>
   );
 };

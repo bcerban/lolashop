@@ -9,14 +9,14 @@ const CartList = () => (
         {({ data, loading, error }) => {
             if (error) {
                 return (
-                        <Text style={{
-                            backgroundColor: 'red',
-                            color: 'white',
-                            width: '80%',
-                            padding: 8
-                        }}>
-                            {`Failed to load cart. Error was: ${error.message}`}
-                        </Text>
+                    <Text style={{
+                        backgroundColor: 'red',
+                        color: 'white',
+                        width: '80%',
+                        padding: 8
+                    }}>
+                        {`Failed to load cart. Error was: ${error.message}`}
+                    </Text>
                 );
             } else if (loading) {
                 return <ActivityIndicator animating={loading} />;
