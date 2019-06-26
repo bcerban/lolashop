@@ -1,66 +1,42 @@
 import React from 'react';
-import { View } from 'react-native';
-import RemoveItemButton from './remove-button';
-import styled from 'styled-components';
+import { Text } from 'react-native';
+import { Button, Card, Title, withTheme } from 'react-native-paper';
+import { TouchableItem } from '../../containers';
 
-const ItemContainer = styled.View`
-    background-color: white;
-    border: 1px solid #d8d9e0;
-    margin: 10px 0px;
-`;
+const CartItem = (props) => { 
+    const { colors } = props.theme;
 
-const ItemImage = styled.Image`
-    width: 100%; 
-    height: 275px;
-`;
+    return (
+        <TouchableItem 
+            onPress={props.onPress} 
+            backgroundColor={colors.surface}
+            borderColor={colors.background}
+        >
+            <Card theme={props.theme}>
+                <Card.Content>
+                    <Title style={{ color: colors.primary, fontWeight: 'bold' }}>{props.product.name}</Title>
+                </Card.Content>
+                
+                <Card.Cover source={props.product.mainImage 
+                    ? { uri: props.product.mainImage } 
+                    : require('../../assets/default.png')} />
+                
+                <Card.Content style={{ flex: 1, marginTop: 5, alignItems: 'flex-end' }}>
+                    <Text style={{ color: colors.text, fontWeight: 'bold' }}>${props.product.price}</Text>
+                </Card.Content>   
 
-const ItemTitle = styled.Text`
-    flex: 1;
-    margin: 10px 16px;
-    color: #1e152a;
-    font-size: 24px;
-    font-weight: bold;
-`;
-
-const ItemPrice = styled.Text`
-    margin: 10px;
-    color: #1e152a;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-`;
-
-const ItemDescription = styled.Text`
-    width: 90%;
-    margin: 10px 5% 20px;
-    color: #1e152a;
-`;
-
-const CartItem = (props) => (
-    <ItemContainer>
-        <View style={{ flex: 1, borderBottomWidth: 1, borderColor: '#d8d9e0', borderStyle: 'solid' }}>
-            <ItemImage source={props.product.mainImage 
-                ? { uri: props.product.mainImage } 
-                : require('../../assets/default.png')} />
-        </View>
-        
-        <View style={{ 
-            flexDirection: 'row', 
-            flex: 1, 
-        }}>
-            <ItemTitle>{props.product.name}</ItemTitle>
-            <ItemPrice>${props.product.price}</ItemPrice>
-        </View>
-        
-        <ItemDescription>{props.product.description}</ItemDescription>
-        <RemoveItemButton 
-            title="Quitar" 
-            color="white"
-            backgroundColor="#1e152a"
-            productId={props.product.id}
-            remove={props.remove}
-        />
-    </ItemContainer>
-);
-
-export default CartItem;
+                <Card.Actions>
+                    <Button 
+                        icon="shopping-cart" 
+                        mode="contained" 
+                        onPress={props.remove}
+                        style={{ width: '90%', marginLeft: '5%', marginTop: 20 }}
+                    >
+                        Quitar del carrito
+                    </Button> 
+                </Card.Actions>
+            </Card>
+        </TouchableItem>
+    );
+}
+export default withTheme(CartItem);

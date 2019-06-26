@@ -8,6 +8,7 @@ export const MY_CART = gql`
         id
         name
         description
+        dimensions
         price
         images
         mainImage @client
