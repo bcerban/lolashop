@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { View, ScrollView, Dimensions, StyleSheet, Platform, Alert } from 'react-native';
-import { withTheme, Title, Paragraph, Button } from 'react-native-paper';
+import { View, ScrollView, Dimensions, StyleSheet, Platform } from 'react-native';
+import { withTheme, Title, Paragraph } from 'react-native-paper';
 import { Layout } from '../containers';
+import { AddToCartButton } from '../components/products';
 import Carousel, { Pagination, ParallaxImage } from 'react-native-snap-carousel';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
@@ -91,15 +92,7 @@ class Product extends Component {
                             Dimensiones: {this.state.dimensions}
                         </Paragraph>
                     </ScrollView>
-                    
-                    <Button 
-                        icon="shopping-cart" 
-                        mode="contained" 
-                        onPress={() => Alert.alert('', 'Agregaste un producto a tu carrito!')}
-                        style={{ width: '80%', marginLeft: '10%', marginTop: 20 }}
-                    >
-                        Agregar al carrito
-                    </Button>
+                    <AddToCartButton productId={this.state.id} />
                 </View>
             </Layout>
         );
