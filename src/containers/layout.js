@@ -7,7 +7,7 @@ const Layout = (props) => {
   const { colors } = props.theme;
 
   return (
-    <View style={{ flex: 1, width: '100%', backgroundColor: colors.background, alignItems: 'center' }}>
+    <View style={{ flex: 1, width: '100%', backgroundColor: colors.surface, alignItems: 'center' }}>
       {props.title ? <TopBar title={props.title} /> : null}
       
       {props.scrollable ? (

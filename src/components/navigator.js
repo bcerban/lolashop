@@ -20,7 +20,7 @@ const BottomNavigator = createBottomTabNavigator({
     Search: { 
         screen: CatalogNavigator,
         navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-search' color={tintColor} size={35} />
+            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-home' color={tintColor} size={35} />
         }) 
     },
     Locations: { 
