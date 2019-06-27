@@ -4,12 +4,12 @@ const Theme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        primary: '#ef6461',
-        accent: '#e4b363',
-        background: '#e8e9eb',
+        primary: '#ff5af5',
+        accent: '#006c70',
+        background: '#dadce0',
         surface: 'white',
         error: '#e0dfd5',
-        text: '#313638',
+        text: '#484848',
     }
 }
 
