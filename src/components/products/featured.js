@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Dimensions, StyleSheet } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import { withTheme, Card, Title } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import { TouchableItem } from '../../containers';
@@ -34,7 +34,7 @@ class FeaturedProducts extends Component {
                     alignItems: 'flex-end',
                     justifyContent: 'center'
                 }}>
-                    <Text style={{ fontWeight: 'bold' }}>{item.name.toUpperCase()}</Text>
+                    <Text style={{ fontWeight: 'bold', color: 'white', backgroundColor: this.props.theme.colors.primary }}>{item.name.toUpperCase()}</Text>
                 </Card.Content>
             </Card>
         </TouchableItem>
