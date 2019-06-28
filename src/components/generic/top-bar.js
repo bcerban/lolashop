@@ -12,6 +12,7 @@ const TopBarContainer = styled.View`
 
 const TopBarText = styled.Text`
   line-height: 50px;
+  font-family: BungeeInline-Regular;
   font-size: 16;
   font-weight: 700;
   text-align: center;

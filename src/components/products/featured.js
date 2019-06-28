@@ -19,14 +19,18 @@ class FeaturedProducts extends Component {
     }
 
     renderProduct = ({ item }, parallaxProps) => (
-        <TouchableItem borderColor='transparent' backgroundColor='transparent' onPress={() => this.goToProduct(item)} >
+        <TouchableItem 
+            borderColor='transparent' 
+            backgroundColor='transparent' 
+            onPress={() => this.goToProduct(item)}
+        >
             <Card style={{ height: parallaxProps.sliderHeight }}>
                 <Card.Cover 
                     source={{ uri: item.mainImage }} 
-                    style={{ height: parallaxProps.sliderHeight, width: 90, resizeMode: 'contain', resizeMethod: 'scale' }}
+                    style={{ height: parallaxProps.sliderHeight, width: parallaxProps.itemWidth / 2, resizeMode: 'contain', resizeMethod: 'scale' }}
                 />
                 <Card.Content style={{ 
-                    width: screenWidth, 
+                    width: parallaxProps.itemWidth, 
                     height: parallaxProps.sliderHeight,
                     position: 'absolute', 
                     top: 0, 
@@ -34,7 +38,11 @@ class FeaturedProducts extends Component {
                     alignItems: 'flex-end',
                     justifyContent: 'center'
                 }}>
-                    <Text style={{ fontWeight: 'bold', color: 'white', backgroundColor: this.props.theme.colors.primary }}>{item.name.toUpperCase()}</Text>
+                    <Text style={{ 
+                        fontWeight: 'bold', 
+                        color: 'white', 
+                        backgroundColor: this.props.theme.colors.primary 
+                    }}>{item.name.toUpperCase()}</Text>
                 </Card.Content>
             </Card>
         </TouchableItem>
@@ -47,7 +55,7 @@ class FeaturedProducts extends Component {
                     width: screenWidth, 
                     textAlign: 'center', 
                     color: this.props.theme.colors.primary, 
-                    ...this.props.theme.fonts.regular
+                    fontFamily: 'BungeeInline-Regular'
                 }}>Destacados para vos</Title>
                 <Carousel
                     ref={c => this.carousel = c}

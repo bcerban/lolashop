@@ -68,7 +68,8 @@ class Product extends Component {
                         color: this.props.theme.colors.primary,
                         backgroundColor: 'white',
                         padding: 10,
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        fontFamily: 'BungeeInline-Regular'
                     }}>
                         {this.state.name}
                     </Title>

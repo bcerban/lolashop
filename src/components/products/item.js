@@ -14,7 +14,7 @@ const ProductItem = (props) => {
         >
             <Card theme={props.theme}>
                 <Card.Content>
-                    <Title style={{ color: colors.primary, fontWeight: 'bold' }}>{props.product.name}</Title>
+                    <Title style={{ color: colors.primary, fontWeight: 'bold', fontFamily: 'BungeeInline-Regular' }}>{props.product.name}</Title>
                 </Card.Content>
 
                 <Card.Cover source={props.product.mainImage 

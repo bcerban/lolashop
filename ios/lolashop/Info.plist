@@ -70,6 +70,11 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Bungee-Regular.ttf</string>
+		<string>BungeeHairline-Regular.ttf</string>
+		<string>BungeeInline-Regular.ttf</string>
+		<string>BungeeOutline-Regular.ttf</string>
+		<string>BungeeShade-Regular.ttf</string>
 	</array>
 </dict>
 </plist>
