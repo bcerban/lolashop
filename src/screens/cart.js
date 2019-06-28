@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { Query } from 'react-apollo';
-import { IS_LOGGED_IN } from '../queries/isLoggedIn';
+import { IS_LOGGED_IN } from '../queries/user';
 import { CartList, Layout } from '../containers';
 
 const CART_TITLE = 'Mi carrito';

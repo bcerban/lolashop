@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { Text, ActivityIndicator, FlatList, View, Alert } from 'react-native';
-import { Searchbar, withTheme } from 'react-native-paper';
+import { Text, FlatList, View, Alert } from 'react-native';
+import { Searchbar, ActivityIndicator, withTheme } from 'react-native-paper';
 import { Query } from 'react-apollo';
 import { Layout } from '../containers';
 import { SEARCH } from '../queries/products';

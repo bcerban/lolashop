@@ -1,7 +1,7 @@
 import React from 'react';
-import { Alert, ActivityIndicator } from 'react-native';
+import { Alert } from 'react-native';
 import { Mutation } from 'react-apollo';
-import { Button } from 'react-native-paper';
+import { Button, ActivityIndicator } from 'react-native-paper';
 import { ADD_TO_CART } from '../../queries/cart';
 
 const AddToCartButton = (props) => (

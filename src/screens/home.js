@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { Query } from 'react-apollo';
 import { CategoryList, Layout } from '../containers';
 import { FEATURED } from '../queries/products';
