@@ -10,6 +10,13 @@ const Theme = {
         surface: 'white',
         error: '#ff0000',
         text: '#484848',
+    },
+    fonts: {
+        ...DefaultTheme.fonts,
+        regular: {
+            fontFamily: 'Bungee Inline',
+            fontWeight: 'normal'
+        }
     }
 }
 

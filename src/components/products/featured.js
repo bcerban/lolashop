@@ -43,11 +43,16 @@ class FeaturedProducts extends Component {
     render() {
         return (
             <View style={{ margin: 10, height: 200 }}>
-                <Title style={{ width: screenWidth, textAlign: 'center' }}>Destacados para vos</Title>
+                <Title style={{ 
+                    width: screenWidth, 
+                    textAlign: 'center', 
+                    color: this.props.theme.colors.primary, 
+                    ...this.props.theme.fonts.regular
+                }}>Destacados para vos</Title>
                 <Carousel
                     ref={c => this.carousel = c}
                     sliderWidth={screenWidth}
-                    sliderHeight={100}
+                    sliderHeight={150}
                     itemWidth={180}
                     data={this.props.products}
                     renderItem={this.renderProduct}
