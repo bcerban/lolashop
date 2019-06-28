@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { View, ScrollView, Dimensions, StyleSheet, Platform } from 'react-native';
 import { withTheme, Title, Paragraph } from 'react-native-paper';
-import { Layout } from '../containers';
-import { AddToCartButton } from '../components/products';
+import Layout from '../components/layout';
+import { AddToCartButton } from '../containers';
 import Carousel, { Pagination, ParallaxImage } from 'react-native-snap-carousel';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');

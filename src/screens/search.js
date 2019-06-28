@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Text, FlatList, View, Alert } from 'react-native';
 import { Searchbar, ActivityIndicator, withTheme } from 'react-native-paper';
 import { Query } from 'react-apollo';
-import { Layout } from '../containers';
+import Layout from '../components/layout';
 import { SEARCH } from '../queries/products';
 import { ProductItem } from '../components/products';
 

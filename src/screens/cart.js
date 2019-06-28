@@ -2,7 +2,8 @@ import React from 'react';
 import { Text } from 'react-native';
 import { Query } from 'react-apollo';
 import { IS_LOGGED_IN } from '../queries/user';
-import { CartList, Layout } from '../containers';
+import { CartList } from '../containers';
+import Layout from '../components/layout';
 
 const CART_TITLE = 'Mi carrito';
 

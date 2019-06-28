@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { View, Alert, FlatList } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 import { Query } from 'react-apollo';
-import { Layout } from '../containers';
 import { LocationItem } from '../components/locations';
 import { GET_LOCATIONS } from '../queries/locations';
+import Layout from '../components/layout';
 import getDistance from 'geolib/es/getDistance';
 import openMap from 'react-native-open-maps';
 

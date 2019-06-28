@@ -1,8 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { Query, ApolloConsumer, Mutation } from 'react-apollo';
 import { clearSession, saveToken } from '../util/session';
-import { Layout } from '../containers';
+import Layout from '../components/layout';
 import { LoggedIn, LoginForm } from '../components/profile';
 import { IS_LOGGED_IN, LOGIN_USER, ME } from '../queries/user';
 import { ActivityIndicator } from 'react-native-paper';

@@ -1,5 +1,4 @@
 import React from 'react';
-// import {StyleSheet, View} from 'react-native';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 import { Cart, Category, Favorites, Home, Locations, Product, Profile, Search } from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
