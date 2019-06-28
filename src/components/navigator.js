@@ -1,15 +1,20 @@
 import React from 'react';
 // import {StyleSheet, View} from 'react-native';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
-import { Cart, Category, Favorites, Locations, Product, Profile, Search } from '../screens';
+import { Cart, Category, Favorites, Home, Locations, Product, Profile, Search } from '../screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const CatalogNavigator = createStackNavigator({
-    Search: Search,
+    Home: Home,
     Category: Category,
     Product: Product
 }, {
 });
+
+const SearchNavigator = createStackNavigator({
+    Search: Search,
+    Product: Product
+}, {});
 
 const CartNavigator = createStackNavigator({
     Cart: Cart,
@@ -17,11 +22,17 @@ const CartNavigator = createStackNavigator({
 }, {});
 
 const BottomNavigator = createBottomTabNavigator({
-    Search: { 
+    Home: { 
         screen: CatalogNavigator,
         navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => <Ionicons name='ios-home' color={tintColor} size={35} />
         }) 
+    },
+    Seach: {
+        screen: SearchNavigator,
+        navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Ionicons name='ios-search' color={tintColor} size={35} />
+        })
     },
     Locations: { 
         screen: Locations,
