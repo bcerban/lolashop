@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 import { Query } from 'react-apollo';
-import { CategoryList, Layout } from '../containers';
+import { CategoryList } from '../containers';
+import Layout from '../components/layout';
 import { FEATURED } from '../queries/products';
 import { FeaturedProducts } from '../components/products';
 

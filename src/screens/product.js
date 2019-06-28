@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, ScrollView, Dimensions, StyleSheet, Platform } from 'react-native';
 import { withTheme, Title, Paragraph } from 'react-native-paper';
-import { Layout } from '../containers';
+import Layout from '../components/layout';
 import { AddToCartButton } from '../components/products';
 import Carousel, { Pagination, ParallaxImage } from 'react-native-snap-carousel';
 

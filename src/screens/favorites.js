@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Text } from 'react-native';
-import { Layout } from '../containers';
+import Layout from '../components/layout';
 
 const FAVS_TITLE = 'Favoritos';
 
