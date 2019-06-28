@@ -8,7 +8,7 @@ const Theme = {
         accent: '#006c70',
         background: '#dadce0',
         surface: 'white',
-        error: '#e0dfd5',
+        error: '#ff0000',
         text: '#484848',
     }
 }

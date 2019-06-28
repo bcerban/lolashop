@@ -3,11 +3,9 @@ import { Text } from 'react-native';
 import { Query, ApolloConsumer, Mutation } from 'react-apollo';
 import { clearSession, saveToken } from '../util/session';
 import { Layout } from '../containers';
-import LoginForm from '../components/profile/login-form';
-import LoggedIn from '../components/profile/logged-in';
-import { IS_LOGGED_IN } from '../queries/isLoggedIn';
-import { LOGIN_USER } from '../queries/login';
-import { ME } from '../queries/me';
+import { LoggedIn, LoginForm } from '../components/profile';
+import { IS_LOGGED_IN, LOGIN_USER, ME } from '../queries/user';
+import { ActivityIndicator } from 'react-native-paper';
 
 const PROFILE_TITLE = 'Mi perfil';
 
@@ -21,25 +19,20 @@ const Profile = () => (
                             <Mutation 
                                 mutation={LOGIN_USER}
                                 onCompleted={async ({ login }) => {
-                                    await saveToken(login);
+                                    await saveToken(login.login);
                                     client.writeData({ data: { isLoggedIn: true }});
                                 }}>
-                                {(login, { error }) => {
+                                {(login, { loading, error }) => {
+                                    if (loading) {
+                                        return (
+                                            <Layout title={PROFILE_TITLE}>
+                                                <ActivityIndicator animating={loading} />
+                                            </Layout>
+                                        );
+                                    }
+
                                     return (
-                                        <Layout title={PROFILE_TITLE}>
-                                            {error && (
-                                                <Text style={{
-                                                    backgroundColor: 'red',
-                                                    color: 'white',
-                                                    width: '80%',
-                                                    padding: 8
-                                                }}>
-                                                    {`Failed to log in. Error was: ${error.message}`}
-                                                </Text>
-                                            )}
-                                            
-                                            <LoginForm login={login} />
-                                        </Layout>
+                                        <LoginForm login={login} error={error} />
                                     );
                                 }}
                             </Mutation>
@@ -48,8 +41,16 @@ const Profile = () => (
                 );
             } else {
                 return (
-                    <Query query={ME} fetchPolicy="network-only">
-                        {({ data, client }) => {
+                    <Query query={ME} fetchPolicy='cache-and-network'>
+                        {({ data, loading, client }) => {
+                            if (loading) {
+                                return (
+                                    <Layout title={PROFILE_TITLE}>
+                                        <ActivityIndicator animating={loading} />
+                                    </Layout>
+                                );
+                            }
+
                             return (
                                 <Layout title={PROFILE_TITLE}>
                                     <LoggedIn 

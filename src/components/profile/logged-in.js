@@ -1,37 +1,31 @@
 import React from 'react';
-import { Container, Heading, StyledButton, StyledForm } from '../generic';
-import styled from 'styled-components';
+import { View } from 'react-native';
+import { withTheme, Avatar, Paragraph, Button } from 'react-native-paper';
 
-const Avatar = styled.Image`
-    width: 175px;
-    height: 175px;
-    background-color: #f3eff5;
-    border-radius: 87.5px;
-    margin: 16px 0px;
-`;
-
-const Description = styled.Text`
-    margin: 16px 0px;
-`;
-
-const LoggedIn = (props) => (
-    <Container>
-        <StyledForm>
-            <Heading>Mi cuenta</Heading>
+const LoggedIn = (props) => {
+    return (
+        <View style={{ alignItems: 'center', width: '80%' }}>
             {props.user && (
-                <Avatar source={{ uri: props.user.avatarUrl }} />
+                <View style={{ 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    width: '100%',
+                    marginBottom: 20
+                }}>
+                    <Avatar.Image source={{ uri: props.user.avatarUrl }} size={150} />
+                </View>
             )}
-            <Description>
-                Estás registrado como {props.user ? props.user.email : ''}.
-            </Description>
-            <StyledButton 
-                title="Log out" 
-                color="white"
-                backgroundColor="#1e152a"
-                onPress={props.logout} 
-            />
-        </StyledForm>
-    </Container>
-);
+            <Paragraph>Estas registrado como {props.user ? props.user.email : ''}</Paragraph>
+            <Button 
+                icon="input" 
+                mode="contained" 
+                onPress={props.logout}
+                style={{ width: '90%', marginLeft: '5%', marginTop: 20 }}
+            >
+                Cerrar sesión
+            </Button> 
+        </View>
+    );
+}
 
-export default LoggedIn;
+export default withTheme(LoggedIn);

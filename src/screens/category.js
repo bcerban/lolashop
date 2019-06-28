@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { View, Text, FlatList, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, FlatList, Alert } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { Query } from 'react-apollo';
 import { Layout } from '../containers';
 import ProductItem from '../components/products/item';

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ActivityIndicator, Alert } from 'react-native';
+import { View, Text, FlatList, Alert } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 import { Query, Mutation } from 'react-apollo';
 import { MY_CART, REMOVE_FROM_CART } from '../queries/cart';
 import { CartItem } from '../components/cart';

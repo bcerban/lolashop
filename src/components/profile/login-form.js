@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Container, Heading, StyledButton, StyledForm } from '../generic';
+import { View } from 'react-native';
+import { Title, TextInput, Button, Paragraph, withTheme } from 'react-native-paper';
 
-const unit = 8;
-const colors = {
-    primary: '#E77684',
-    secondary: '#8A8B93',
-    accent: '#6A6278',
-    background: '#f7f8fa',
-    grey: '#d8d9e0',
-    text: '#454955',
-    textSecondary: '#BE5A38'
-};
-
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   state = { email: '' };
 
   onSubmit = () => {
@@ -25,34 +14,42 @@ export default class LoginForm extends Component {
   };
 
   render() {
+    const { colors } = this.props.theme;
+
     return (
-      <Container>
-          <Heading>Regístrate</Heading>
-          <StyledForm>
-              <StyledInput
-                  placeholder="Email"
-                  data-testid="login-email"
-                  keyboardType="email-address"
-                  onChangeText={(text) => {
-                    this.setState({ email: text.toLowerCase() });
-                  }}
-              />
-              <StyledButton 
-                title="Log in" 
-                color="white"
-                backgroundColor="#1e152a"
-                onPress={this.onSubmit} 
-              />
-          </StyledForm>
-      </Container>  
+      <View style={{ 
+          width: '100%', 
+          flex: 1,
+          alignItems: 'center', 
+          justifyContent: 'center'
+        }}>
+        
+        <Title>Registrate</Title>
+        
+        <TextInput
+          value={this.state.email}
+          label={"Email"}
+          keyboardType="email-address"
+          mode='outlined'
+          onChangeText={(text) => { this.setState({ email: text.toLowerCase() }); }}
+          style={{ width: '90%' }}
+          error={this.props.error}
+        />
+
+        {this.props.error ? (
+          <Paragraph style={{ color: colors.error, width: '90%' }}>{this.props.error.message}</Paragraph>
+        ) : null}
+        
+        <Button 
+            mode="contained" 
+            onPress={this.onSubmit}
+            style={{ width: '90%', marginTop: 20 }}
+        >
+            Ingresar
+        </Button> 
+      </View>
     );
   }
 }
 
-const StyledInput = styled.TextInput`
-  width: 100%;
-  margin-bottom: ${unit * 2}px;
-  padding: ${unit * 1.25}px ${unit * 2.5}px;
-  border: 1px solid ${colors.grey};
-  font-size: 16;
-`;
+export default withTheme(LoginForm);
