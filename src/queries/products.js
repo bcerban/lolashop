@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const SEARCH = gql`
     query search($keyword: String!) {
-        search {
+        search(keyword: $keyword) {
             products {
                 id
                 name
