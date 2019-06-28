@@ -13,7 +13,7 @@ const CategoryItem = (props) => {
         >
             <Card theme={props.theme}>
                 <Card.Content style={{ alignItems: 'center' }}>
-                    <Title>{props.category.name}</Title>
+                    <Title style={{ fontFamily: 'Bungee-Regular' }}>{props.category.name}</Title>
                 </Card.Content>
                 <Card.Cover source={props.category.imageUrl
                     ? { uri: props.category.imageUrl } 

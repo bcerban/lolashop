@@ -68,7 +68,8 @@ class Product extends Component {
                         color: this.props.theme.colors.primary,
                         backgroundColor: 'white',
                         padding: 10,
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        fontFamily: 'BungeeInline-Regular'
                     }}>
                         {this.state.name}
                     </Title>
@@ -88,9 +89,11 @@ class Product extends Component {
                 <View style={{ width: screenWidth }}>
                     <ScrollView style={{ height: screenHeight / 5 }}>
                         <Paragraph style={{ padding: 10 }}>{this.state.description}</Paragraph>
-                        <Paragraph style={{ padding: 10, fontWeight: 'bold' }}>
-                            Dimensiones: {this.state.dimensions}
-                        </Paragraph>
+                        {this.state.dimensions ? (
+                            <Paragraph style={{ padding: 10, fontWeight: 'bold' }}>
+                                Dimensiones: {this.state.dimensions}
+                            </Paragraph>
+                        ) : null}
                     </ScrollView>
                     <AddToCartButton productId={this.state.id} />
                 </View>

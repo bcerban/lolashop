@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Dimensions, StyleSheet } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import { withTheme, Card, Title } from 'react-native-paper';
 import Carousel from 'react-native-snap-carousel';
 import { TouchableItem } from '../../containers';
@@ -19,14 +19,18 @@ class FeaturedProducts extends Component {
     }
 
     renderProduct = ({ item }, parallaxProps) => (
-        <TouchableItem borderColor='transparent' backgroundColor='transparent' onPress={() => this.goToProduct(item)} >
+        <TouchableItem 
+            borderColor='transparent' 
+            backgroundColor='transparent' 
+            onPress={() => this.goToProduct(item)}
+        >
             <Card style={{ height: parallaxProps.sliderHeight }}>
                 <Card.Cover 
                     source={{ uri: item.mainImage }} 
-                    style={{ height: parallaxProps.sliderHeight, width: 90, resizeMode: 'contain', resizeMethod: 'scale' }}
+                    style={{ height: parallaxProps.sliderHeight, width: parallaxProps.itemWidth / 2, resizeMode: 'contain', resizeMethod: 'scale' }}
                 />
                 <Card.Content style={{ 
-                    width: screenWidth, 
+                    width: parallaxProps.itemWidth, 
                     height: parallaxProps.sliderHeight,
                     position: 'absolute', 
                     top: 0, 
@@ -34,7 +38,11 @@ class FeaturedProducts extends Component {
                     alignItems: 'flex-end',
                     justifyContent: 'center'
                 }}>
-                    <Text style={{ fontWeight: 'bold' }}>{item.name.toUpperCase()}</Text>
+                    <Text style={{ 
+                        fontWeight: 'bold', 
+                        color: 'white', 
+                        backgroundColor: this.props.theme.colors.primary 
+                    }}>{item.name.toUpperCase()}</Text>
                 </Card.Content>
             </Card>
         </TouchableItem>
@@ -43,11 +51,16 @@ class FeaturedProducts extends Component {
     render() {
         return (
             <View style={{ margin: 10, height: 200 }}>
-                <Title style={{ width: screenWidth, textAlign: 'center' }}>Destacados para vos</Title>
+                <Title style={{ 
+                    width: screenWidth, 
+                    textAlign: 'center', 
+                    color: this.props.theme.colors.primary, 
+                    fontFamily: 'BungeeInline-Regular'
+                }}>Destacados para vos</Title>
                 <Carousel
                     ref={c => this.carousel = c}
                     sliderWidth={screenWidth}
-                    sliderHeight={100}
+                    sliderHeight={150}
                     itemWidth={180}
                     data={this.props.products}
                     renderItem={this.renderProduct}

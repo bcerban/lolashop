@@ -58,6 +58,11 @@
 		0B445BC8396A4A8A8C657FF6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69020D6EADC74887B6185AC6 /* Octicons.ttf */; };
 		91159693C08B40B39ABE2163 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8FF096AD77E4026A9724988 /* SimpleLineIcons.ttf */; };
 		B959D03F51CA4C3BA2A743D1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3F7F1F8BCCD476DBE0D8B8F /* Zocial.ttf */; };
+		D22E1A3A5DBF48C3A8BE2440 /* Bungee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0C2DFFDB353446C9B1D99CB /* Bungee-Regular.ttf */; };
+		CFB6CD9187A24EE0869EDA66 /* BungeeHairline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56BB4BC3352D4B7EAAA74B40 /* BungeeHairline-Regular.ttf */; };
+		6F0801AFB89E478BA70FD313 /* BungeeInline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AFF5A541D2047068C2FB041 /* BungeeInline-Regular.ttf */; };
+		AD46F29751274BF48506B1E8 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C922E5D063534378BC7D2753 /* BungeeOutline-Regular.ttf */; };
+		12C0B6AD1B284EE9AA16681D /* BungeeShade-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E263C5524234BC7B9169EE1 /* BungeeShade-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +391,11 @@
 		69020D6EADC74887B6185AC6 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		D8FF096AD77E4026A9724988 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C3F7F1F8BCCD476DBE0D8B8F /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D0C2DFFDB353446C9B1D99CB /* Bungee-Regular.ttf */ = {isa = PBXFileReference; name = "Bungee-Regular.ttf"; path = "../fonts/Bungee-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		56BB4BC3352D4B7EAAA74B40 /* BungeeHairline-Regular.ttf */ = {isa = PBXFileReference; name = "BungeeHairline-Regular.ttf"; path = "../fonts/BungeeHairline-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9AFF5A541D2047068C2FB041 /* BungeeInline-Regular.ttf */ = {isa = PBXFileReference; name = "BungeeInline-Regular.ttf"; path = "../fonts/BungeeInline-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C922E5D063534378BC7D2753 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; name = "BungeeOutline-Regular.ttf"; path = "../fonts/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E263C5524234BC7B9169EE1 /* BungeeShade-Regular.ttf */ = {isa = PBXFileReference; name = "BungeeShade-Regular.ttf"; path = "../fonts/BungeeShade-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -675,6 +685,11 @@
 				69020D6EADC74887B6185AC6 /* Octicons.ttf */,
 				D8FF096AD77E4026A9724988 /* SimpleLineIcons.ttf */,
 				C3F7F1F8BCCD476DBE0D8B8F /* Zocial.ttf */,
+				D0C2DFFDB353446C9B1D99CB /* Bungee-Regular.ttf */,
+				56BB4BC3352D4B7EAAA74B40 /* BungeeHairline-Regular.ttf */,
+				9AFF5A541D2047068C2FB041 /* BungeeInline-Regular.ttf */,
+				C922E5D063534378BC7D2753 /* BungeeOutline-Regular.ttf */,
+				5E263C5524234BC7B9169EE1 /* BungeeShade-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1141,6 +1156,11 @@
 				0B445BC8396A4A8A8C657FF6 /* Octicons.ttf in Resources */,
 				91159693C08B40B39ABE2163 /* SimpleLineIcons.ttf in Resources */,
 				B959D03F51CA4C3BA2A743D1 /* Zocial.ttf in Resources */,
+				D22E1A3A5DBF48C3A8BE2440 /* Bungee-Regular.ttf in Resources */,
+				CFB6CD9187A24EE0869EDA66 /* BungeeHairline-Regular.ttf in Resources */,
+				6F0801AFB89E478BA70FD313 /* BungeeInline-Regular.ttf in Resources */,
+				AD46F29751274BF48506B1E8 /* BungeeOutline-Regular.ttf in Resources */,
+				12C0B6AD1B284EE9AA16681D /* BungeeShade-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

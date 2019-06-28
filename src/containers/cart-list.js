@@ -16,17 +16,16 @@ export default class CartList extends Component {
 
     render() {
         return (
-            <Query query={MY_CART} fetchPolicy="network-only">
+            <Query query={MY_CART} fetchPolicy='cache-and-network'>
                 {({ data, loading, error }) => {
                     if (error) {
                         return (
                             <Text style={{
-                                backgroundColor: 'red',
-                                color: 'white',
-                                width: '80%',
-                                padding: 8
+                                alignItems: 'center',
+                                textAlign: 'center',
+                                width: '80%'
                             }}>
-                                {`Failed to load cart. Error was: ${error.message}`}
+                                {`Error al cargar el carrito. ${error.message}`}
                             </Text>
                         );
                     } else if (loading) {
@@ -77,5 +76,3 @@ export default class CartList extends Component {
         );
     }
 }
-
-// export default CartList;

@@ -2,12 +2,13 @@ import React from 'react';
 import { Alert } from 'react-native';
 import { Mutation } from 'react-apollo';
 import { Button, ActivityIndicator } from 'react-native-paper';
-import { ADD_TO_CART } from '../../queries/cart';
+import { ADD_TO_CART, MY_CART } from '../../queries/cart';
 
 const AddToCartButton = (props) => (
     <Mutation 
         mutation={ADD_TO_CART}
         variables={{ id: props.productId }}
+        refetchQueries={[ { query: MY_CART } ]}
     >
         {(addToCart, { error, loading, data }) => {
             if (loading) return <ActivityIndicator animating={loading} />;
