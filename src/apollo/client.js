@@ -22,7 +22,7 @@ const customFetch = async (uri, options) => {
 const Client = new ApolloClient({
     cache: getCache(),
     link: new HttpLink({
-        uri: 'http://localhost:4000/',
+        uri: 'https://grip-express.mariosouto.now.sh/graphql', //'http://localhost:4000/',
         fetch: customFetch
     }),
     typeDefs,

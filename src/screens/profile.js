@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { Query, ApolloConsumer, Mutation } from 'react-apollo';
 import { clearSession, saveToken } from '../util/session';
 import Layout from '../components/layout';
@@ -52,13 +53,17 @@ const Profile = () => (
 
                             return (
                                 <Layout title={PROFILE_TITLE}>
-                                    <LoggedIn 
-                                        user={data.me}
-                                        logout={async () => {
-                                            await clearSession();
-                                            client.writeData({ data: { isLoggedIn: false }})
-                                        }} 
-                                    />
+                                    {data && data.me ? (
+                                        <LoggedIn 
+                                            user={data.me}
+                                            logout={async () => {
+                                                await clearSession();
+                                                client.writeData({ data: { isLoggedIn: false }})
+                                            }} 
+                                        />
+                                    ) : (
+                                        <Text>Error</Text>
+                                    )}
                                 </Layout>
                             );
                         }}
